@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование данных интервью</title>
+    <link href="../../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="employee-container">
+<form class="employee-info" method="post">
+    <div class="employee-field">
+        <h4>Интервьюер</h4>
+        <label>
+            <select name="interview_interviewer" id="lang">
+                {% for interview_interviewer in interview_interviewers %}
+                    {% if interview_interviewer.get('ID') != current_interviewer_id %}
+                        <option value="{{ interview_interviewer.get('ID') }}">{{ interview_interviewer.get('имя') }}</option>
+                    {% else %}
+                        <option selected="selected"
+                                value="{{ current_interviewer_id }}">{{ current_interviewer_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Дата собеседования</h4>
+        <label>
+            <input name="interview_date" type="date" placeholder="Укажите дату"
+                   value="{{ interview_date }}">
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Номер заявки</h4>
+        <label>
+            <select name="interview_enroll_id" id="lang">
+                {% for interview_enroll_id in interview_enroll_ids %}
+                    {% if interview_enroll_id != current_interview_enroll_id %}
+                        <option value="{{ interview_enroll_id }}">{{ interview_enroll_id }}</option>
+                    {% else %}
+                        <option selected="selected"
+                                value="{{ current_interview_enroll_id }}">{{ current_interview_enroll_id }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Результат</h4>
+        <label>
+            <select name="interview_result" id="lang">
+                {% if current_interview_result %}
+                    <option selected="selected"
+                            value="{{ current_interview_result }}">{{ current_interview_result }}</option>
+                {% endif %}
+                {% for interview_result in ['пройдено успешно', 'не пройдено', 'не состоялось', 'рассматривается'] %}
+                    {% if interview_result != current_interview_result %}
+                        <option value="{{ interview_result }}">{{ interview_result }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="center">
+        <input name="redirect_url" value="{{ redirect }}" type="hidden">
+        <input class="submit-button" type="submit" value="сохранить">
+    </div>
+</form>
+<a class="back" href={{ redirect }}>Назад</a>
+</body>
+</html>

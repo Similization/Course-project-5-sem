@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Открытые вакансии</title>
+    <link type=" text/css" rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body class="center">
+<h1> Список вакансий </h1> <br><br>
+<a class="back" href={{ url_for('main_menu') }}>Нажмите для возврата к меню</a>
+<div class="vacancy-container">
+    {% for dict in result %}
+        <div class="vacancy-info">
+            <a href="{{ url_for('blueprint_query.get_vacancy_info', vacancy_id=dict.get('vacancy_id')) }}">
+                {{ dict.get('job_name') }}
+            </a>
+            <br>
+            Зарплата от {{ dict.get('min_salary') }}руб. до {{ dict.get('max_salary') }}руб.
+            <br>
+            Информация о работе: {{ dict.get('criteria') }}
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

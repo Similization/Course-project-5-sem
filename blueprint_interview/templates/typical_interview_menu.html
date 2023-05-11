@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваши портфолио</title>
+    <link href="../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="center">
+<h2>Список возможностей</h2>
+<div class="interview-menu">
+    <div class="interview-menu-element">
+        <label for="interview_unoccupied_list" class="named_list">Не назначенные собеседования</label>
+        <button type="submit" id="interview_unoccupied_list" name="interview_unoccupied_list" class="submit-button"
+                onclick="window.location.href='{{ url_for('blueprint_interview.interview_unoccupied_list') }}'">Смотреть
+        </button>
+    </div>
+    <div class="interview-menu-element">
+        <label for="interview_occupied_list" class="named_list">Назначенные собеседования</label>
+        <button type="submit" id="interview_occupied_list" name="interview_occupied_list" class="submit-button"
+                onclick="window.location.href='{{ url_for('blueprint_interview.interview_occupied_list') }}'">Смотреть
+        </button>
+    </div>
+    <div class="interview-menu-element">
+        <label for="interview_list" class="named_list">Все собеседования</label>
+        <button type="submit" id="interview_list" name="interview_list" class="submit-button"
+                onclick="window.location.href='{{ url_for('blueprint_interview.interview_list') }}'">Смотреть
+        </button>
+    </div>
+</div>
+<a class="back" href={{ url_for('main_menu') }}>Нажмите для возврата к меню</a>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>База данных собеседований</title>
+    <link href="../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="center">
+<h2>Список работников</h2>
+<div class="center">
+    <table class="table-title">
+        <tr>
+            {% for column in schema %}
+                <th class=border>{{ column }}</th>
+            {% endfor %}
+            <th class=border>действия</th>
+        </tr>
+        {% for line in result %}
+            <tr>
+                {% for column in line %}
+                    <td> {{ column if column is not none else 'не назначен' }}</td>
+                {% endfor %}
+                <td>
+                    {% if line[-2] %}
+                        <button type="button"
+                                onclick="window.location.href='{{ url_for('blueprint_query.watch_portfolio',
+                            user_id=line[-1],portfolio_id=line[-2]) }}'">
+                            смотреть портфолио
+                        </button>
+                    {% endif %}
+                    <button type="button"
+                            onclick="window.location.href='{{ url_for('blueprint_interview.update_interview_info',
+                            interview_id=line[0]) }}'">
+                        редактировать
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="back" href={{ url_for('blueprint_interview.interview_menu') }}>Нажмите для возврата к меню</a>
+</div>
+</body>
+</html>

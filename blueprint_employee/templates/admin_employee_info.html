@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work with requests</title>
+    <link href="../../../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="employee-container">
+<form class="employee-info" method="post">
+    <div class="employee-field">
+        <h4>Имя</h4>
+        <label>
+            <input name="employee_name" type="text" placeholder="Введите имя работника" value="{{ employee_name }}">
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Дата рождения</h4>
+        <label>
+            <input name="employee_birth_date" type="date" placeholder="Введите дату рождения"
+                   value="{{ employee_birth_date }}">
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Адрес</h4>
+        <label>
+            <input name="employee_address" type="text" placeholder="Введите адрес" value="{{ employee_address }}">
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Образование</h4>
+        <label>
+            <select name="employee_education" id="lang">
+                {% if employee_education %}
+                    <option selected="selected" value="{{ employee_education }}">{{ employee_education }}</option>
+                {% endif %}
+                {% for education in ['среднее', 'магистратура', 'высшее'] %}
+                    {% if education != employee_education %}
+                        <option value="{{ education }}">{{ education }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="employee-field">
+        <h4>Должность</h4>
+        <label>
+            <select name="employee_job_id" id="lang">
+                {% if employee_job_id %}
+                    <option selected="selected" value="{{ employee_job_id }}">{{ employee_job_name }}</option>
+                {% endif %}
+                {% for job in available_jobs %}
+                    <option value="{{ job[0] }}">{{ job[1] }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="center">
+        <input class="submit-button" type="submit" value="сохранить">
+    </div>
+</form>
+<a class="back" href={{ url_for('blueprint_employee.get_employee') }}>Назад</a>
+</body>
+</html>

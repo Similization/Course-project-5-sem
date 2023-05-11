@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о вакансии</title>
+    <link href="../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="center">
+<h1> {{ result.get('job_name') }} </h1> <br><br>
+<form class="vacancy-info" method="post">
+    <div class="vacancy-about">
+        {{ result.get('info') }}
+    </div>
+    <div class="vacancy-bill">
+        Заработная плата: {{ result.get('min_salary') }} - {{ result.get('max_salary') }}руб.
+    </div>
+    <div class="vacancy-criteria">
+        Критерии:
+        <br>
+        {{ result.get('criteria_full') }}
+    </div>
+    <input name="is_signed" hidden value="{{ "True" if is_available else "False" }}">
+    <div class="vacancy-field">
+        {% if portfolios_id %}
+            <h4>Портфолио</h4>
+            <label>
+                <select name="user_portfolio_id" id="lang" {{ "disabled" if current_portfolio_id }}>
+                    <option value="0">не выбрано</option>
+                    {% if current_portfolio_id %}
+                        <option selected="selected"
+                                value="{{ current_portfolio_id }}">{{ current_portfolio_id }}</option>
+                    {% endif %}
+                    {% for portfolio_id in portfolios_id %}
+                        {% if portfolio_id != current_portfolio_id %}
+                            <option value="{{ portfolio_id }}">{{ portfolio_id }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </label>
+        {% else %}
+            <h4>
+                у вас нет ни одного портфолио, чтобы его создать - нажмите
+                <a class="back" href={{ url_for('blueprint_portfolio.add_portfolio_info') }}>сюда</a>
+            </h4>
+        {% endif %}
+    </div>
+    <div>
+        <input type="submit" class="submit-button {{ "red" if not is_available }}"
+               value="{{ 'Записаться на собеседование' if is_available else 'Отменить запись' }}">
+    </div>
+</form>
+<a class="back" href={{ redirect }}>Нажмите чтобы вернуться назад</a>
+</body>
+</html>

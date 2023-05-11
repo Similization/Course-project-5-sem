@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2> Меню отчетов</h2>
+    <div class="center">
+        <form method="post">
+            <label for="month_sale">Выберите дату</label>
+            <input name="date" id="month_sale" type="month">
+            <input type=submit value="Отправить">
+        </form>
+        <div>
+            {% for line in result %}
+                <a href="{{ url_for('blueprint_report.get_report', key=key, month=line[1], year=line[0]) }}">Отчет
+                    за {{ line[1] }} месяц {{ line[0] }} года</a>
+            {% endfor %}
+        </div>
+        <a class="back" href={{ url_for('blueprint_report.start_report') }}>Нажмите для возврата к отчетам</a>
+    </div>
+{% endblock %}

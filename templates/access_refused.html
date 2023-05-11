@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2> Вам необходимо авторизоваться </h2>
+    <br>
+    <a href="{{ url_for('blueprint_auth.start_auth') }}"> Нажмите для возврата в главное меню </a>
+{% endblock %}

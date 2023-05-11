@@ -1,0 +1,10 @@
+{
+  "1": {
+    "create_rep": "blueprint_report.create_employee_report",
+    "view_rep": "blueprint_report.view_employee_report"
+  },
+  "2": {
+    "create_rep": "blueprint_report.create_vacancy_report",
+    "view_rep": "blueprint_report.view_vacancy_report"
+  }
+}

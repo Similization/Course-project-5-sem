@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="center">
+    <h2>Отчет</h2>
+    <div class="center">
+        <table class="table-title">
+            <tr>
+                {% for column in schema %}
+                    <th class=border>{{ column }}</th>
+                {% endfor %}
+            </tr>
+            {% for line in result %}
+                <tr>
+                    {% for column in line %}
+                        <td> {{ column if column is not none else 'не указано' }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <a class="back" href={{ url_for('blueprint_report.start_report') }}>Нажмите для возврата к отчетам</a>
+    </div>
+</body>
+</html>

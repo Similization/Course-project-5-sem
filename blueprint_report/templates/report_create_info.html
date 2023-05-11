@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>Отчет был успешно создан</h2>
+<div>
+    <a href="{{ url_for('blueprint_report.start_report') }}">Нажмите для возврата в меню отчетов</a>
+</div>
+{% endblock %}

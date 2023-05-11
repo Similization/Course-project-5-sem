@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h4> Выберите действие</h4>
+    <br><br><br>
+    <div>
+        <a href={{ url_for('blueprint_query.get_free_vacancy') }}> Начать запросы</a>
+        <br><br><br>
+        <a href={{ url_for('goodbye') }}> Завершить запросы</a>
+    </div>
+{% endblock %}

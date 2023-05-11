@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Меню работы с отчетами</h2>
+    <div class="report-menu">
+        {% for report in report_list %}
+            <form action='' class="report-menu-element" method='POST'>
+                <label for="create_rep" class="named_list">{{ report['rep_name'] }}</label>
+                <div>
+                    <input type="submit" class="submit-button" name=create_rep id=create_rep value="Создать">
+                    <input type="submit" class="submit-button" name="view_rep" value="Смотреть">
+                    <input type="hidden" name="rep_id" value={{ report['rep_id'] }}>
+                </div>
+            </form>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('main_menu') }}">Нажмите для возврата в главное меню</a>
+{% endblock %}

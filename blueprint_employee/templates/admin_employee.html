@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>База данных работников</title>
+    <link href="../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="center">
+<h2>Список работников</h2>
+<div class="center">
+    {% if user_group == 'admin' %}
+        <div>
+            <h4>Чтобы добавить нового работника - нажмите <a
+                    href="{{ url_for('blueprint_employee.add_employee_info') }}">сюда</a>
+            </h4>
+        </div>
+    {% endif %}
+    <table class="table-title">
+        <tr>
+            {% for column in schema %}
+                <th class=border>{{ column }}</th>
+            {% endfor %}
+            {% if user_group == 'admin' %}
+                <th class=border>действия</th>
+            {% endif %}
+        </tr>
+        {% for line in result %}
+            <tr>
+                {% for column in line %}
+                    <td> {{ column if column is not none else 'не назначена' }}</td>
+                {% endfor %}
+                {% if user_group == 'admin' %}
+                    <td>
+                        <button type="button"
+                                onclick="window.location.href='{{ url_for('blueprint_employee.update_employee_info',
+                                employee_id=line[0]) }}'">
+                            редактировать
+                        </button>
+                        <button type="button"
+                                onclick="window.location.href='{{ url_for('blueprint_employee.delete_employee_info',
+                                employee_id=line[0]) }}'">
+                            удалить
+                        </button>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="back" href={{ url_for('main_menu') }}>Нажмите для возврата к меню</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>До свидания, заходите к нам ещё.</h2>
+    <a href="{{ url_for('blueprint_auth.start_auth') }}"> Нажмите чтобы перейти на страницу авторизации </a>
+{% endblock %}

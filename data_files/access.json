@@ -1,0 +1,28 @@
+{
+  "typical": [
+    "blueprint_interview",
+    "blueprint_query.watch_portfolio"
+  ],
+  "manager": [
+    "blueprint_employee.get_employee",
+    "blueprint_report.start_report",
+    "blueprint_report.view_employee_report",
+    "blueprint_report.view_vacancy_report",
+    "blueprint_report.get_report"
+  ],
+  "admin": [
+    "blueprint_employee",
+    "blueprint_report.start_report",
+    "blueprint_report.create_employee_report",
+    "blueprint_report.create_vacancy_report"
+  ],
+  "external": [
+    "blueprint_portfolio",
+    "blueprint_interview.get_user_interview",
+    "blueprint_interview.sign_up_for_an_interview",
+    "blueprint_interview.sign_out_from_an_interview",
+    "blueprint_query.get_vacancy",
+    "blueprint_query.get_vacancy_info",
+    "blueprint_query.update_interview_enroll_info"
+  ]
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваши портфолио</title>
+    <link href="../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="center">
+<h2>Список портфолио</h2>
+<h4>
+    Для того, чтобы создать портфолио - нажмите
+    <a href="{{ url_for('blueprint_portfolio.add_portfolio_info') }}">
+        сюда
+    </a>
+</h4>
+<div class="portfolio-container portfolio-list">
+    {% for dict in result %}
+        <div class="portfolio-info">
+            <a href="{{ url_for('blueprint_portfolio.update_portfolio_info',
+            portfolio_id=dict.get('portfolio_id')) }}">
+                {{ dict.get('portfolio_id') }}
+            </a>
+            <h5>Имя: {{ dict.get('name') }}</h5>
+            <h5>Город: {{ dict.get('address') }}</h5>
+            <h5>Дата рождения: {{ dict.get('birth_date') }}</h5>
+            <h5>Пол: {{ dict.get('sex') }}</h5>
+            <p class="overflow">О себе: {{ dict.get('about') }}</p>
+        </div>
+    {% endfor %}
+</div>
+<a class="back" href={{ url_for('main_menu') }}>Нажмите для возврата к меню</a>
+</body>
+</html>

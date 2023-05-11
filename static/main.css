@@ -1,0 +1,321 @@
+h1 {
+    font-size: 18pt;
+    color: black;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0
+}
+
+input {
+    margin: 2pt;
+}
+
+.overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.center {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.vacancy-button {
+    border-radius: 8px;
+    background: #73A353;
+    color: #fff; /* Белый цвет текста */
+    border: none; /* Убираем рамку */
+    padding: 10px; /* Поля вокруг текста */
+}
+
+.red {
+    background: tomato;
+}
+
+.back {
+    margin: auto;
+    padding: 10px;
+}
+
+.registration-form {
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+    background: #73A353;
+    color: #fff; /* Белый цвет текста */
+    border: none; /* Убираем рамку */
+    border: white 5px;
+    border-style: dashed;
+    min-width: 240px;
+    margin: 10px;
+    padding: 10px;
+    display: grid;
+    grid-gap: 5px;
+}
+
+.register-field,
+.report-menu-element,
+.interview-menu-element {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.register-field > input, .register-button {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.register-button {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.table-title {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    font-size: 13px;
+    text-align: left;
+    border-collapse: collapse;
+    background: #73A353;
+    margin: auto;
+}
+
+.table-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin: auto;
+}
+
+.table-title th {
+    color: #fff;
+    background: #639b3b;
+    padding: 10px 15px;
+}
+
+.table-title td {
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.table-title tr:last-child td {
+    border-bottom: none;
+}
+
+.border {
+    text-align: center;
+    justify-content: center;
+}
+
+.table-title td:last-child {
+    border-right: none;
+}
+
+.table-title tr:hover td {
+    color: #111111;
+}
+
+.table-title tr:nth-child(even) {
+    background-color: #a2c988;
+}
+
+.table-title tr td:last-child {
+    display: grid;
+}
+
+.table-title tr:first-child td:last-child {
+    display: table-cell;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vacancy-about,
+.vacancy-criteria,
+.interview-menu-element {
+    width: 400px;
+    margin: auto;
+}
+
+.interview-menu-element .submit-button,
+.report-menu-element .submit-button {
+    padding: 5px;
+    margin: 0 0 0 10px;
+}
+
+.report-menu-element {
+    width: 600px;
+}
+
+/* employees */
+.employee-container,
+.portfolio-container,
+.vacancy-container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.vacancy-container {
+    width: 500px;
+}
+
+.portfolio-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.employee-info,
+.portfolio-info,
+.vacancy-info,
+.interview-menu,
+.report-menu {
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+    background: #73A353;
+    color: #fff; /* Белый цвет текста */
+    border: none; /* Убираем рамку */
+    margin: 15px;
+    padding: 15px;
+    border: white 5px;
+    border-style: dashed;
+    min-width: 400px;
+}
+
+.vacancy-info,
+.interview-menu,
+.report-menu {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.vacancy-info select {
+    margin: auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/*.vacancy-info a {*/
+/*    font-size: 30px;*/
+/*}*/
+
+.disabled-portfolio-info {
+    min-width: 350px;
+}
+
+.portfolio-info > .center {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.employee-field, .portfolio-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.employee-field > *,
+.portfolio-field > * {
+    margin: 10px;
+    padding: 10px;
+}
+
+.employee-field > label > input,
+.employee-field > label > select,
+.portfolio-field > label > input,
+.portfolio-field > label > select {
+    min-width: 160px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.employee-field > label > select,
+.portfolio-field > label > select {
+    min-width: 170px;
+}
+
+.portfolio-field > label > textarea {
+    max-width: 250px;
+    max-height: 300px;
+    width: 160px;
+    min-width: 160px;
+    min-height: 25px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.disabled-portfolio-div {
+    max-width: 240px;
+}
+
+.submit-button {
+    margin: auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.submit-button:hover {
+    background: #73A353;
+    color: #fff; /* Белый цвет текста */
+    cursor: pointer;
+}
+
+/* navbar */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #04AA6D;
+}

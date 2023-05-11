@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work with requests</title>
+    <link href="../../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="portfolio-container">
+<form class="portfolio-info" method="post">
+    <div class="portfolio-field">
+        <h4>Имя</h4>
+        <label>
+            <input name="portfolio_name" type="text" placeholder="Введите свое имя" value="{{ portfolio_name }}">
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Дата рождения</h4>
+        <label>
+            <input name="portfolio_birth_date" type="date" placeholder="Введите дату рождения"
+                   value="{{ portfolio_birth_date }}">
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Адрес</h4>
+        <label>
+            <input name="portfolio_address" type="text" placeholder="Введите свой адрес"
+                   value="{{ portfolio_address }}">
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Пол</h4>
+        <label>
+            <select name="portfolio_sex" id="lang">
+                {% if portfolio_sex %}
+                    <option selected="selected" value="{{ portfolio_sex }}">{{ portfolio_sex }}</option>
+                {% endif %}
+                {% for sex in ['мужской', 'женский'] %}
+                    {% if sex != portfolio_sex %}
+                        <option value="{{ sex }}">{{ sex }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>О себе</h4>
+        <label>
+            <textarea name="portfolio_about" placeholder="Расскажите о себе">{{ portfolio_about }}</textarea>
+        </label>
+    </div>
+    <div class="center">
+        <input class="submit-button" type="submit" value="сохранить">
+        {% if portfolio_id %}
+            <button type="button" class="submit-button"
+                    onclick="window.location.href='{{ url_for('blueprint_portfolio.delete_portfolio_info',
+                    portfolio_id=portfolio_id) }}'">
+                удалить
+            </button>
+        {% endif %}
+    </div>
+</form>
+<a class="back" href={{ redirect }}>Назад</a>
+</body>
+</html>

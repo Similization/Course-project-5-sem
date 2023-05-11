@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1> Введите логин и пароль</h1> <br><br>
+<div>
+    <form method="POST" action="" class="registration-form">
+        <div class="register-field">
+            <label for="login">Логин</label>
+            <input type="text" id="login" name="login">
+        </div>
+        <div class="register-field">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit" class="register-button center" value="Отправить">
+    </form>
+    <br><br>
+    <h2>{{ message }}</h2>
+</div>
+{% endblock %}

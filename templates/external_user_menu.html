@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <h2> Главное меню ИС </h2>
+        <br> <br>
+        <a href="{{ url_for('blueprint_query.get_vacancy') }}">Вакансии</a> <br><br>
+        <a href="{{ url_for('blueprint_interview.get_user_interview') }}">Результаты собеседований</a> <br><br>
+        <a href="{{ url_for('blueprint_portfolio.get_portfolio') }}">Список портфолио</a> <br><br>
+        <a href="{{ url_for('exit_function') }}">Выход из системы</a> <br><br>
+    </div>
+{% endblock %}
+

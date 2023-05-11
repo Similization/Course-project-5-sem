@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Work with requests</title>
+    <link href="../../../static/main.css" type="text/css" rel="stylesheet">
+</head>
+<body class="portfolio-container">
+<form class="portfolio-info disabled-portfolio-info" method="post">
+    <div class="portfolio-field">
+        <h4>Имя</h4>
+        <label>
+            <p>{{ portfolio_info["name"] if portfolio_info["name"] else "Информация не указана" }}</p>
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Дата рождения</h4>
+        <label>
+            <p>{{ portfolio_info["birth_date"] if portfolio_info["birth_date"] else "Информация не указана" }}</p>
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Адрес</h4>
+        <label>
+            <p>{{ portfolio_info["address"] if portfolio_info["address"] else "Информация не указана" }}</p>
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Пол</h4>
+        <label>
+            <p>{{ portfolio_info["sex"] if portfolio_info["sex"] else "Информация не указана" }}</p>
+        </label>
+    </div>
+    <div class="portfolio-field">
+        <h4>Информация</h4>
+        <label>
+            <div class="disabled-portfolio-div">
+                <p>{{ portfolio_info["about"] if portfolio_info["about"] else "Информация не указана" }}</p>
+            </div>
+        </label>
+    </div>
+</form>
+<a class="back" href={{ redirect }}>Назад</a>
+</body>
+</html>
